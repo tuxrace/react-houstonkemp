@@ -3,9 +3,14 @@ import { connect } from "react-redux";
 import AddWrapper from "./AddWrapper";
 import { Row, Col, Input, Form, Button, Divider, Icon, notification } from "antd";
 import { compose } from "redux";
+
 import { addEntry } from "./actions";
+import ConfirmModal from "../../Components/ConfirmModal";
 
 class Add extends PureComponent {
+  state = {
+    visible: false
+  };
   handleSave = () => {
     const { validateFieldsAndScroll, dispatchAddEntry } = this.props.form;
     validateFieldsAndScroll((errors, values) => {
@@ -25,12 +30,20 @@ class Add extends PureComponent {
     });
   };
 
-  handleCancel = () => {};
+  showConfirm = () => {
+    this.setState({ visible: true });
+  };
+  handleCancel = () => {
+    this.setState({ visible: false });
+  };
+  handleOk = () => {
+    this.props.history.push("/");
+  };
   handleOnKeyUp = (e) => {
-    if (e.keyCode === 13){
+    if (e.keyCode === 13) {
       this.handleSave();
     }
-  }
+  };
   render() {
     const { TextArea } = Input;
     const { getFieldDecorator } = this.props.form;
@@ -57,7 +70,7 @@ class Add extends PureComponent {
                     message: "Please add a content"
                   }
                 ]
-              })(<TextArea rows={6} autoFocus onKeyUp={this.handleOnKeyUp}/>)}
+              })(<TextArea rows={6} autoFocus onKeyUp={this.handleOnKeyUp} />)}
             </Form.Item>
           </Col>
         </Row>
@@ -69,11 +82,12 @@ class Add extends PureComponent {
             </Button>
           </Col>
           <Col>
-            <Button type="default" size="large" onClick={this.handleCancel}>
+            <Button type="default" size="large" onClick={this.showConfirm}>
               Cancel
             </Button>
           </Col>
         </Row>
+        <ConfirmModal visible={this.state.visible} handleOk={this.handleOk} handleCancel={this.handleCancel} />
       </AddWrapper>
     );
   }

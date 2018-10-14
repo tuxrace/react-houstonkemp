@@ -1,5 +1,5 @@
 import { fromJS } from "immutable";
-
+import {ADD_ENTRY, CLEAR_NEW_ENTRIES, DELETE_ENTRY} from './constants';
 const initialState = fromJS({
   entries: [
     {
@@ -13,11 +13,8 @@ const initialState = fromJS({
 });
 
 const reducers = (state = initialState, action) => {
-  console.log(state.toJS());
   switch (action.type) {
-    case "SHOW_ENTRIES":
-      return state.get("entries");
-    case "ADD_ENTRY": {
+    case ADD_ENTRY: {
       const entries = state.get("entries").toJS();
       const newEntries = state.get("newEntries").toJS();
       entries.push(action.data);
@@ -26,9 +23,9 @@ const reducers = (state = initialState, action) => {
         newState.set("entries", fromJS(entries)).set("newEntries", fromJS(newEntries));
       });
     }
-    case "CLEAR_NEW_ENTRIES":
+    case CLEAR_NEW_ENTRIES:
       return state.set("newEntries", fromJS([]));
-    case "DELETE_ENTRY":{
+    case DELETE_ENTRY:{
       const entries = state.get("entries").toJS();
       const filteredEntries = entries.filter(find => find.id !== action.id);
       return state.set('entries', fromJS(filteredEntries));

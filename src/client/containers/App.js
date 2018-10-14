@@ -1,7 +1,6 @@
 import React, { Fragment, PureComponent } from "react";
-import { createStore } from "redux";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from "./Home";
 import Add from "./Add";
