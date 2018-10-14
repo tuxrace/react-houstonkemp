@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const EntryWrapper = styled.div`
   pre{
-    font-size: 1.4rem;    
+    font-size: 1rem;    
     background: white;    
     text-align: center;
     padding: 8px;

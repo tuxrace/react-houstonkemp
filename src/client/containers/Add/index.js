@@ -7,7 +7,7 @@ import { addEntry } from "./actions";
 
 class Add extends PureComponent {
   handleSave = () => {
-    const { validateFieldsAndScroll } = this.props.form;
+    const { validateFieldsAndScroll, dispatchAddEntry } = this.props.form;
     validateFieldsAndScroll((errors, values) => {
       if (!errors) {
         this.props.dispatchAddEntry(values.content);
@@ -26,6 +26,11 @@ class Add extends PureComponent {
   };
 
   handleCancel = () => {};
+  handleOnKeyUp = (e) => {
+    if (e.keyCode === 13){
+      this.handleSave();
+    }
+  }
   render() {
     const { TextArea } = Input;
     const { getFieldDecorator } = this.props.form;
@@ -52,7 +57,7 @@ class Add extends PureComponent {
                     message: "Please add a content"
                   }
                 ]
-              })(<TextArea rows={6} />)}
+              })(<TextArea rows={6} autoFocus onKeyUp={this.handleOnKeyUp}/>)}
             </Form.Item>
           </Col>
         </Row>

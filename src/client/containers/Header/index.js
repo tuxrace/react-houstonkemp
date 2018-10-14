@@ -17,12 +17,11 @@ class Header extends PureComponent{
   }
 
   render(){
-    console.log(this.props.newEntries)
     return <HeaderWrapper>
       <h1> My Online Diary <Icon type="highlight" theme="outlined" /> </h1>
       <Row type="flex" justify="center">
-        <Col span={2}><Button type="primary" size="large" icon="home"  onClick={() => this.handleClick('/')}>Home</Button></Col> 
-        <Col span={2}><Button type="primary" size="large" icon="cloud" onClick={() => this.handleClick('/add')}>Add Entry</Button></Col> 
+        <Col span={3}><Button type="primary" size="large" icon="home"  onClick={() => this.handleClick('/')}>Home</Button></Col> 
+        <Col span={2}><Button type="primary" size="large" icon="cloud" onClick={() => this.handleClick('/add')}>Add Entry</Button></Col>
         <Col span={3}><Badge count={this.props.newEntries}><Button type="primary" size="large" icon="file" onClick={() => this.handleClick('/view')}>View Entries</Button></Badge></Col>
       </Row>
     </HeaderWrapper>

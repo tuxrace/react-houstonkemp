@@ -6,7 +6,7 @@ export const addEntry = (data) => {
       title: Math.random().toString(36).substr(2,10),
       content: data,
       date: new Date(),
-      wordCount: data.split(" ").length
+      wordCount: data.trim().split(" ").length
     }
   }
 }

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const HomeWrapper = styled.div`
-  padding-top: 1%;
+  padding: 12px 20%;  
   h1{
     font-size: 2rem;
     color: yellow;

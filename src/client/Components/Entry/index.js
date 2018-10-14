@@ -7,7 +7,7 @@ import EntryWrapper from './EntryWrapper';
 const Entry = ({ item, showDelete, handleDelete }) => (
   <EntryWrapper>
     <pre>
-      <i>{`"${item.content}"`}</i> <br />
+      <i>{`${item.content}`}</i> <br />
       <small>
         <span>word count</span> <Badge count={item.wordCount} style={{ backgroundColor: "#52c41a" }} />{" "}
       </small>
