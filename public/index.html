@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="manifest" href="manifest.json">
+    <script src="bundle.js" defer></script>
+
+    <title>My Online Diary</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script>
+        (function isIE() {
+            var myNav = navigator.userAgent.toLowerCase();
+            var ieVersion = (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+            if (ieVersion)
+                alert("This app is best viewed in Google chrome.")
+        })()
+    </script>
+</body>
+
+</html>
