@@ -20,7 +20,7 @@
     "file-loader": "^2.0.0",
     "helmet": "^3.14.0",
     "immutable": "^3.8.2",
-    "less": "^3.8.1",
+    "less": "^3.13.1",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
